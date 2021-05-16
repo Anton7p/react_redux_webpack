@@ -1,0 +1,226 @@
+
+.row,
+.column {
+    box-sizing: border-box;
+}
+
+.row:before,
+.row:after {
+    content: " ";
+    display: table;
+}
+
+.row:after {
+    clear: both;
+}
+
+.column {
+    position: relative;
+    float: left;
+    display: block;
+}
+
+.column + .column {
+    margin-left: 1.6%;
+}
+
+.lg-1 {
+    width: 6.86666666667%;
+}
+
+.lg-2 {
+    width: 15.3333333333%;
+}
+
+.lg-3 {
+    width: 23.8%;
+}
+
+.lg-4 {
+    width: 32.2666666667%;
+}
+
+.lg-5 {
+    width: 40.7333333333%;
+}
+
+.lg-6 {
+    width: 49.2%;
+}
+
+.lg-7 {
+    width: 57.6666666667%;
+}
+
+.lg-8 {
+    width: 66.1333333333%;
+}
+
+.lg-9 {
+    width: 74.6%;
+}
+
+.lg-10 {
+    width: 83.0666666667%;
+}
+
+.lg-11 {
+    width: 91.5333333333%;
+}
+
+.lg-12 {
+    width: 100%;
+    margin-left: 0;
+}
+
+.xs-6 {
+    width: 49.2%;
+}
+.xs-7 {
+    width: 57.6666666667%;
+}
+.xs-5 {
+    width: 40.7333333333%;
+}
+
+.xs-8 {
+    width: 66.1333333333%;
+}
+
+.xs-2 {
+    width: 15.3333333333%;
+}
+
+.xs-10 {
+    width: 83.0666666667%;
+}
+
+.xs-4 {
+    width: 32.2666666667%;
+}
+
+.xs-3 {
+    width: 23.8%;
+}
+
+.xs-9 {
+    width: 74.6%;
+}
+
+.xs-12 {
+    width: 100%;
+    margin-left: 0;
+}
+
+@media only screen and (max-width: 700px) {
+    .lg-1,
+    .lg-2,
+    .lg-3,
+    .lg-4,
+    .lg-5,
+    .lg-6,
+    .lg-7,
+    .lg-8,
+    .lg-9,
+    .lg-10,
+    .lg-11,
+    .lg-12 {
+        float: none;
+        width: auto;
+    }
+
+    .column + .column {
+        margin-left: 0;
+    }
+}
+
+
+body {
+    padding: 20px;
+}
+
+.column {
+    background: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #777;
+    padding: 5px;
+    min-height: 30px;
+    text-align: center;
+}
+
+
+
+.row:last-child {
+    margin-bottom: 0;
+}
+
+.column .column {
+
+}
+
+.p {
+    font-size: 14px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 700px) {
+    .row {
+        margin-bottom: 0;
+    }
+
+    .row:last-child .column:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.page_main {
+    flex: 1 1 auto;
+
+}
+
+.hide {
+    display: none;
+}
+
+
+input[type=text] {
+    width: 90%;
+    font-size: 16px;
+    margin: 0;
+    padding: 5px;
+    border-radius: 4px;
+    min-height: 30px;
+    border: lightblue 1px solid;
+}
+
+input[type=checkbox] {
+    margin: 0;
+    padding: 5px;
+}
+
+.star  {
+    display: flex;
+    align-items: center;
+    text-align: start;
+}
+.definition{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.description{
+    width: 100%;
+}
