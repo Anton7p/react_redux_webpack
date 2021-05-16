@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import CheckBoxItem from "./CheckBoxItem";
-import {Value} from "../lib/getValue";
+import CheckBoxItem from "./CheckBoxItem.jsx";
+import {Value} from "../lib/getValue.js";
 import {uniqueArray} from "../lib/uniqueArray";
 
 function CheckBoxGroup({selected, handleCheckbox}) {
@@ -12,8 +12,8 @@ function CheckBoxGroup({selected, handleCheckbox}) {
         })
     }
     return (
-        <div className="row">
-            <div className="column xs-12 ">
+        <div className=" row">
+            <div className=" column xs-12 ">
                 {uniqueArray(partOfSpeech).map(item => {
                     if (item === 'nothing here') return null;
                     return <CheckBoxItem key={item}

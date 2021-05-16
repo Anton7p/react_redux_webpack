@@ -22,6 +22,7 @@
 
 .column + .column {
     margin-left: 1.6%;
+    text-align: center;
 }
 
 .lg-1 {
@@ -131,6 +132,10 @@
 
     .column + .column {
         margin-left: 0;
+
+    }
+     .column {
+        text-align: center;
     }
 }
 
@@ -146,7 +151,7 @@ body {
     color: #777;
     padding: 5px;
     min-height: 30px;
-    text-align: center;
+    /*text-align: center;*/
 }
 
 
@@ -211,11 +216,7 @@ input[type=checkbox] {
     padding: 5px;
 }
 
-.star  {
-    display: flex;
-    align-items: center;
-    text-align: start;
-}
+
 .definition{
     white-space: nowrap;
     overflow: hidden;
@@ -223,4 +224,23 @@ input[type=checkbox] {
 }
 .description{
     width: 100%;
+}
+
+.lightblue{
+    text-align: center;
+    font-size: 16px;
+    border: 1px solid lightblue;
+    color:white;
+    background: lightblue;
+}
+.white{
+    background: white;
+    border: 1px solid white;
+}
+.button::after{
+    box-shadow: 1px 1px 1px brown;
+}
+.title{
+    padding-left: 5%;
+    font-size: 25px;
 }

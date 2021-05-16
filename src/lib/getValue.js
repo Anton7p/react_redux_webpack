@@ -23,7 +23,7 @@ export class Value {
     getDescription(value,property='shortdef') {
 
         if (value[property] && value[property].length !== 0) {
-            return value[property].map((el, idx) => <span key={idx}>{el}</span>)
+            return value[property].map((el) => el)
         }
         return 'there is not definition for this word'
     }

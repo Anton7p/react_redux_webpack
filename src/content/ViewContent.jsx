@@ -1,6 +1,6 @@
 import React from 'react';
-import PageContent from "./PageContent";
-import TabPanel from "./TabPanel";
+import PageContent from "./PageContent.jsx";
+import TabPanel from "./TabPanel.jsx";
 
 
 export function ViewContent(props) {

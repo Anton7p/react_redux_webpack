@@ -98,10 +98,10 @@ module.exports = {
 		path: path.resolve(__dirname, 'dist')
 	},
 	resolve: {
-		extensions: ['.js', '.png', '.json'],
+		extensions: ['.js', '.jsx', '.json'],
 		alias: {
-			"@models": path.resolve(__dirname, 'src/models'),
-			"@": path.resolve(__dirname, 'src')
+			"@models": path.resolve(__dirname, '/src/models'),
+			"@": path.resolve(__dirname, 'word_keeper/src')
 		}
 	},
 	optimization: optimisation(),

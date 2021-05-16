@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import list from "../assets/image/list.svg";
 import star from "../assets/image/star.svg";
-import {useControlContext} from "../ModeControl/SwitchingModeControl";
-import {Value} from "../lib/getValue";
-import {ListRowDescription} from './ListRowDescription'
+import {useControlContext} from "../ModeControl/SwitchingModeControl.jsx";
+import {Value} from "../lib/getValue.js";
+import {ListRowDescription} from './ListRowDescription.jsx'
 
 function ListRow({word, add, remove}) {
     const {mode} = useControlContext()
@@ -33,7 +33,7 @@ function ListRow({word, add, remove}) {
                         <div className="column lg-1" onClick={() => {
                             mode === 'view' ? add(word) : remove(word)
                         }}>
-                            <img src={star} alt=""/>
+                            <div className="star"/>
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import FormGroup from "../FormGroup/FormGroup";
-import ListGroup from "../ListrGroup/ListGroup";
-import {useControlContext} from "../ModeControl/SwitchingModeControl";
+import FormGroup from "../FormGroup/FormGroup.jsx";
+import ListGroup from "../ListrGroup/ListGroup.jsx";
+import {useControlContext} from "../ModeControl/SwitchingModeControl.jsx";
 import {filterCheckbox} from "../lib/filterCheckbox";
 import {filterSearchValue} from "../lib/filterSearchValue";
 
@@ -26,10 +26,10 @@ function PageContent(props) {
 
 
     return (
-        <div className="page_main row">
-            <div className="column lg-12">
-                <div className="row">
-                    <div className="row">
+        <div className=" page_main row">
+            <div className="  column lg-12">
+                <div className=" row">
+                    <div className=" row">
                         <FormGroup {...props}
                                    setText={setText}
                                    selected={props.selected.length > 0 ? props.selected : backUpData}

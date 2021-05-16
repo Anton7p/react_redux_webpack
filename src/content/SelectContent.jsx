@@ -1,6 +1,6 @@
 import React from 'react';
-import PageContentContainer from "./PageContentContainer";
-import PageContent from "./PageContent";
+import PageContentContainer from "./PageContentContainer.jsx";
+import PageContent from "./PageContent.jsx";
 import TabPanel from "./TabPanel";
 
 export function SelectContent(props) {

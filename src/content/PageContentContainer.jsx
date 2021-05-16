@@ -4,7 +4,7 @@ function PageContentContainer(props) {
     return (
         <>
             <div className="column lg-12">
-                <div className="row">
+                <div className="title row">
                     <span>Starred Words</span>
                 </div>
             </div>

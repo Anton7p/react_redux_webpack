@@ -1,6 +1,4 @@
 import './App.css';
-import Footer from "./content/Footer";
-import {Switch} from "./ModeControl/Switch";
 import React from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {setWords} from "./redux/words";
@@ -8,6 +6,8 @@ import {removeSelected, addSelected} from "./redux/selected";
 import {dictionaryApi} from "./api/dictionaryapi";
 import {removeBackUpDataValue} from "./lib/removeBackUpDataValue";
 import {addBackUpDataValue} from "./lib/addBackUpDataValue";
+import Footer from "./content/Footer";
+import {Switch} from "./ModeControl/Switch";
 
 
 function App(props) {
@@ -17,8 +17,6 @@ function App(props) {
         localStorage.setItem('backUpData', JSON.stringify([]));
     }
     localStorage.setItem('backUp', JSON.stringify(true));
-
-
 
     const dispatch = useDispatch()
     const words = useSelector(state => state.words.words[0])
@@ -40,8 +38,8 @@ function App(props) {
     }
 
     return (
-        <div className='wrapper'>
-            <div className="page column lg-12">
+        <div className=' wrapper'>
+            <div className="page white column lg-12">
                 <Switch words={words}
                         selected={selected}
                         setValue={setValue}
@@ -56,6 +54,7 @@ function App(props) {
                         }}
                 />
                 <Footer/>
+
             </div>
         </div>
 

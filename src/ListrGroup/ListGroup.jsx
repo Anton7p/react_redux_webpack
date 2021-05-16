@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import ListRow from "./ListRow";
+import ListRow from "./ListRow.jsx";
 import {sortCard} from "../lib/sortCard";
 
 

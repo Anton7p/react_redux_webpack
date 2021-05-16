@@ -1,5 +1,5 @@
 import * as React from "react";
-import {SwitchingModeControl} from "./SwitchingModeControl";
+import {SwitchingModeControl} from "./SwitchingModeControl.jsx";
 import ViewContent from "../content/ViewContent";
 import SelectContent from "../content/SelectContent";
 

@@ -1,13 +1,13 @@
 import React from 'react';
 import {handleKeyDown} from "../lib/handleKeyDown";
-import {useControlContext} from "../ModeControl/SwitchingModeControl";
+import {useControlContext} from "../ModeControl/SwitchingModeControl.jsx";
 
 
 function Input(props) {
     const {mode} = useControlContext()
     return (
-        <div className="row">
-            <div className=" column lg-12">
+        <div className=" row">
+            <div className="  column lg-12">
                 <input
                     defaultValue={''}
                     placeholder=''
