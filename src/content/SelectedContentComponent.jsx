@@ -1,5 +1,5 @@
-import React from 'react';
-import PageContentContainer from "./PageContentContainer.jsx";
+import React from "react";
+import Title from "./Title.jsx";
 import PageContent from "./PageContent.jsx";
 import Header from "./Header";
 
@@ -8,9 +8,9 @@ export function SelectedContentComponent(props) {
         <>
             <Header {...props}/>
             <div className="page_content row">
-                <PageContentContainer>
+                <Title>
                     <PageContent  {...props}/>
-                </PageContentContainer>
+                </Title>
             </div>
         </>
     );

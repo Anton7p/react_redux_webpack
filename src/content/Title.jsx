@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-function PageContentContainer(props) {
+function Title(props) {
     return (
         <>
             <div className="column lg-12">
@@ -13,4 +13,4 @@ function PageContentContainer(props) {
     );
 }
 
-export default PageContentContainer;
+export default Title;

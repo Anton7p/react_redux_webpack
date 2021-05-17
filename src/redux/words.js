@@ -8,14 +8,14 @@ const words = createSlice({
     },
     reducers: {
         setWords(state, action) {
-            state.words=[]
+            state.words=[];
             state.words.push(action.payload);
-        }  ,
+        } ,
     }
 })
-export default words.reducer
+export default words.reducer;
 
-export const {setWords} = words.actions
+export const {setWords} = words.actions;
 
 
 

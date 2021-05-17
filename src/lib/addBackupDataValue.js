@@ -1,12 +1,12 @@
-import {uniqueObject} from "./uniqueObject";
+import {checkUniqueObject} from "./checkUniqueObject";
 
 
 export  function addBackupDataValue(value) {
     let backupData = JSON.parse(localStorage.getItem("backupData"));
 
-    if (!uniqueObject(backupData, value)) {
-        backupData.push(value)
+    if (!checkUniqueObject(backupData, value)) {
+        backupData.push(value);
     }
-    localStorage.setItem('backupData', JSON.stringify(backupData));
+    localStorage.setItem("backupData", JSON.stringify(backupData));
 }
 

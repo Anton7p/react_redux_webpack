@@ -1,47 +1,77 @@
-import React, {useState} from 'react';
+import React,{useState} from "react";
 import FormGroup from "../FormGroup/FormGroup.jsx";
 import ListGroup from "../ListrGroup/ListGroup.jsx";
-import {useControlContext} from "../mode/SwitchingModeControl.jsx";
-import {filterCheckbox} from "../lib/filterCheckbox";
-import {filterSearchValue} from "../lib/filterSearchValue";
+import {useControlContext} from "../mode/ModeControl.jsx";
+import {filterByCheckboxItem} from "../lib/filterByCheckboxItem";
+import {filterByInputSearchValue} from "../lib/filterByInputSearchValue";
+import {dictionaryApi} from "../api/dictionaryApi";
+import {setWords} from "../redux/words";
+import {useDispatch} from "react-redux";
+
+/**
+ * IThis component processes data from the Input and CheckBox components
+ * if the mode "view" is loading data,else the array is filtered
+ * If the user searches for a word or part of speech, the function filterByInputSearchValue or  function filterByCheckboxItem
+ * filters the word array and returns the found object;
+ */
 
 
 function PageContent(props) {
-    const {mode} = useControlContext()
-    let backupData = JSON.parse(localStorage.getItem("backupData"));
+    const {mode} = useControlContext();
+    const dispatch = useDispatch()
+    const [flag, setFlag] = useState(true);
+    const [inputValue, setInputValue] = useState(' ');
+    let [checkboxItems, setCheckboxItems] = useState([]);
 
-    const [flag, setFlag] = useState(true)
-    const [text, setText] = useState(' ')
-    let [arr, setArr] = useState([])
 
     function handleCheckbox(element, value) {
+
         if (element) {
-            arr.push(value)
-            setArr(arr)
-            setFlag(!flag)
+            checkboxItems.push(value);
+            setCheckboxItems(checkboxItems);
+            setFlag(!flag);
         } else {
-            setArr(arr.filter(el => el !== value))
+            setCheckboxItems(checkboxItems.filter(el => el !== value));
         }
     }
+
+    const downloadData = (value) => {
+        dispatch(async () => {
+            // 'vrs/' query parameter for api https://dictionaryapi.com/,the call  returns a variant of a word in an array
+            let response = await dictionaryApi.getWords(value, "vrs/");
+            if (response.length > 3) {
+                response.length = 3;
+            }
+            let words = []
+            for (let el of response) {
+                //returns an object with parameters for the word
+                let res = await dictionaryApi.getWords(el, "/");
+                words.push(res[0]);
+            }
+            dispatch(setWords(words));
+        })
+    }
+
+
     function handleClick() {
-        console.log(text)
-        props.downloadData(text)
+        downloadData(inputValue);
     }
 
     return (
         <div className="row" >
-            <div className="  column lg-12">
+            <div className="column lg-12">
                 <div className=" row">
                     <div className=" row">
                         <FormGroup {...props}
-                                   setText={setText}
-                                   selected={props.selected.length > 0 ? props.selected : backupData}
+                                   downloadData={downloadData}
+                                   setInputValue={setInputValue}
+                                   selected={props.selected}
                                    handleClick={handleClick}
                                    handleCheckbox={handleCheckbox}/>
                         <ListGroup {...props}
-                                   words={mode === 'view'
+                                   words={mode === "view"
                                        ? props.words
-                                       : filterCheckbox(filterSearchValue(props.selected.length > 0 ? props.selected : backupData,text), arr)}
+                                       : filterByCheckboxItem(filterByInputSearchValue(props.selected,inputValue), checkboxItems)}
 
                         />
                     </div>

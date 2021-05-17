@@ -1,14 +1,14 @@
 import React, {useState} from "react";
 import list from "../assets/image/list.svg";
-import {useControlContext} from "../mode/SwitchingModeControl.jsx";
+import {useControlContext} from "../mode/ModeControl.jsx";
 import {Content} from "../api/contentApi.js";
 import {ListRowDescription} from "./ListRowDescription.jsx"
 
 function ListRow({word, add, remove}) {
-    const {mode} = useControlContext()
+    const {mode} = useControlContext();
 
     // information display changes - full information and transcription changes to short information
-    const [description, setDescription] = useState(false)
+    const [description, setDescription] = useState(false);
 
     return (
         <div className="row">
@@ -30,9 +30,9 @@ function ListRow({word, add, remove}) {
                                 : Content.Instance.getDescription(word)}
                         </div>
                         <div className="column lg-1" onClick={() => {
-                            mode === 'view' ? add(word) : remove(word)
+                            mode === "view" ? add(word) : remove(word)
                         }}>
-                            <div className={`star ${mode === 'view' ? null : "starred"}`}/>
+                            <div className={`star ${mode === "view" ? null : "starred"}`}/>
                         </div>
                     </div>
                 </div>

@@ -1,10 +1,10 @@
 import React from "react";
 import {handleKeyDown} from "../lib/handleKeyDown";
-import {useControlContext} from "../mode/SwitchingModeControl.jsx";
+import {useControlContext} from "../mode/ModeControl.jsx";
 import img from "../assets/image/search.svg"
 
 function Input(props) {
-    const {mode} = useControlContext()
+    const {mode} = useControlContext();
     return (
         <div className="row">
             <div className=" column lg-12">
@@ -13,7 +13,7 @@ function Input(props) {
                         defaultValue={''}
                         placeholder=''
                         type="text"
-                        onChange={e =>  props.setText(e.target.value)}
+                        onChange={e =>  props.setInputValue(e.target.value)}
                         onKeyDown={(e) => mode === "view" ? handleKeyDown(e, (defaultValue) => props.downloadData(defaultValue)) : null}
                     />
                     {mode === "view"
@@ -21,7 +21,6 @@ function Input(props) {
                               <img src={img} alt=""/>
                            </span>
                         :   null}
-
                 </div>
             </div>
         </div>

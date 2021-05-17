@@ -1,8 +1,8 @@
-import {uniqueObject} from "../lib/uniqueObject";
-import {remove} from "../lib/remove";
+import {checkUniqueObject} from "../lib/checkUniqueObject";
+import {removeFromArrayObject} from "../lib/removeFromArrayObject";
 
-const ADD_SELECTED = 'ADD_SELECTED'
-const REMOVE_SELECTED = 'REMOVE_SELECTED'
+const ADD_SELECTED ="ADD_SELECTED";
+const REMOVE_SELECTED = "REMOVE_SELECTED";
 
 let initialState = {
     selected: [],
@@ -11,13 +11,13 @@ let initialState = {
 const selectedReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_SELECTED:
-            if (state.selected.length > 0 && uniqueObject(state.selected, action.payload)) {
+            if (state.selected.length > 0 && checkUniqueObject(state.selected, action.payload)) {
                 return state;
             }
             return {...state, selected: [...state.selected, action.payload]};
 
         case REMOVE_SELECTED:
-            return {...state, selected: [...remove(state.selected, action.payload)]};
+            return {...state, selected: [...removeFromArrayObject(state.selected, action.payload)]};
         default: {
             return state;
         }

@@ -1,44 +1,49 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState} from "react";
 import ListRow from "./ListRow.jsx";
 import {sortCard} from "../lib/sortCard";
 
+/**
+ * This component renders a list of words, adding event handlers to each word
+ * The drag and drop function implements  by sorting by order.
+ * Order and id add to the copied array to each object
+ */
 
 function ListGroup({words, add, remove}) {
 
-    let [cardList, setCardList] = useState([])
-    const [currentCard, setCurrentCard] = useState(null)
+    let [cardList, setCardList] = useState([]);
+    const [currentCard, setCurrentCard] = useState(null);
 
     function dragStartHandler(e, word) {
-        setCurrentCard(word)
+        setCurrentCard(word);
     }
 
     function dragOverHandler(e) {
-        e.preventDefault()
+        e.preventDefault();
     }
 
     function dropHandler(e, word) {
-        e.preventDefault()
+        e.preventDefault();
         setCardList(cardList.map(el => {
             if (el.id === word.id) {
-                return {...el, order: currentCard.order}
+                return {...el, order: currentCard.order};
             }
             if (el.id === currentCard.id) {
-                return {...el, order: word.order}
+                return {...el, order: word.order};
             }
             return el
-        }))
+        }));
     }
 
     useEffect(() => {
         if (words) {
-            const cardList = JSON.parse(JSON.stringify(words))
+            const cardList = JSON.parse(JSON.stringify(words));
             cardList.forEach((el, idx) => {
                 el.id = idx;
                 el.order = idx
-            })
-            setCardList(cardList)
+            });
+            setCardList(cardList);
         }
-    }, [words])
+    }, [words]);
 
 
     return (

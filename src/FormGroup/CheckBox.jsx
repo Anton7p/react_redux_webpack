@@ -1,21 +1,21 @@
-import React, {useState} from 'react';
+import React from "react";
 import CheckBoxItem from "./CheckBoxItem.jsx";
 import {Content} from "../api/contentApi.js";
 import {uniqueArray} from "../lib/uniqueArray";
 
-function CheckBoxGroup({selected, handleCheckbox}) {
+function CheckBox({selected, handleCheckbox}) {
 
-    let partOfSpeech = []
+    let partOfSpeech = [];
     if (selected) {
         selected.forEach(el => {
-            partOfSpeech.push(Content.Instance.getPartOfSpeech(el))
+            partOfSpeech.push(Content.Instance.getPartOfSpeech(el));
         })
     }
     return (
-        <div className=" row">
-            <div className=" column xs-12 ">
+        <div className="row">
+            <div className="column xs-12 ">
                 {uniqueArray(partOfSpeech).map(item => {
-                    if (item === 'nothing here') return null;
+                    if (item === "nothing here") return null;
                     return <CheckBoxItem key={item}
                                          name={item}
                                          handleCheckbox={handleCheckbox}/>
@@ -26,4 +26,4 @@ function CheckBoxGroup({selected, handleCheckbox}) {
     );
 }
 
-export default CheckBoxGroup;
+export default CheckBox;
