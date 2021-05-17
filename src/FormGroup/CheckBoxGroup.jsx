@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import CheckBoxItem from "./CheckBoxItem.jsx";
-import {Value} from "../lib/getValue.js";
+import {Content} from "../api/contentApi.js";
 import {uniqueArray} from "../lib/uniqueArray";
 
 function CheckBoxGroup({selected, handleCheckbox}) {
@@ -8,7 +8,7 @@ function CheckBoxGroup({selected, handleCheckbox}) {
     let partOfSpeech = []
     if (selected) {
         selected.forEach(el => {
-            partOfSpeech.push(Value.Instance.getPartOfSpeech(el))
+            partOfSpeech.push(Content.Instance.getPartOfSpeech(el))
         })
     }
     return (

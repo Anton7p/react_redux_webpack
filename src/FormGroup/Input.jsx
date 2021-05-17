@@ -1,20 +1,28 @@
-import React from 'react';
+import React from "react";
 import {handleKeyDown} from "../lib/handleKeyDown";
-import {useControlContext} from "../ModeControl/SwitchingModeControl.jsx";
-
+import {useControlContext} from "../mode/SwitchingModeControl.jsx";
+import img from "../assets/image/search.svg"
 
 function Input(props) {
     const {mode} = useControlContext()
     return (
-        <div className=" row">
-            <div className="  column lg-12">
-                <input
-                    defaultValue={''}
-                    placeholder=''
-                    type="text"
-                    onChange={e => mode !== 'view' ? props.setText(e.target.value) : null}
-                    onKeyDown={(e) => mode === 'view' ? handleKeyDown(e, (defaultValue) => props.setValue(defaultValue)) : null}
-                />
+        <div className="row">
+            <div className=" column lg-12">
+                <div className="input">
+                    <input
+                        defaultValue={''}
+                        placeholder=''
+                        type="text"
+                        onChange={e =>  props.setText(e.target.value)}
+                        onKeyDown={(e) => mode === "view" ? handleKeyDown(e, (defaultValue) => props.downloadData(defaultValue)) : null}
+                    />
+                    {mode === "view"
+                        ?  <span className="input_img" onClick={props.handleClick}>
+                              <img src={img} alt=""/>
+                           </span>
+                        :   null}
+
+                </div>
             </div>
         </div>
     );

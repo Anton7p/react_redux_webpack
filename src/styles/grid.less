@@ -1,0 +1,141 @@
+
+@mc: 12;
+@margin: 1.6%;
+@scw: calc((100% - (@margin * (@mc - 1))) / @mc);//width of one column
+
+.row, .column {
+  box-sizing: border-box;
+}
+
+.row:before,
+.row:after {
+  content: " ";
+  display: table;
+}
+
+.row:after {
+  clear: both;
+}
+
+.column {
+  position: relative;
+  float: left;
+  display: block;
+  text-align: center;
+}
+
+.column + .column {
+  margin-left: @margin;
+  text-align: center;
+}
+
+.lg-1 {
+  width: calc(@scw);
+}
+
+.lg-2 {
+  width: calc((@scw * 2) + @margin);
+}
+
+.lg-3 {
+  width: calc((@scw * 3) + (@margin * 2));
+}
+
+.lg-6 {
+  width: calc((@scw * 6) + (@margin * 5));
+}
+
+.lg-7 {
+  width: calc((@scw * 7) + (@margin * 6));
+}
+
+.lg-9 {
+  width: calc((@scw * 9) + (@margin * 8));
+}
+
+
+.lg-12 {
+  width:calc((@scw * 12) + (@margin * 11));
+  margin-left: 0;
+}
+
+.xs-2 {
+  width: calc((@scw * 2) + @margin);
+}
+
+.xs-3 {
+  width: calc((@scw * 3) + (@margin * 2));
+}
+
+.xs-4 {
+  width: calc((@scw * 4) + (@margin * 3));
+}
+
+.xs-5 {
+  width:calc((@scw * 5) + (@margin * 4));
+}
+
+.xs-7 {
+  width: calc((@scw * 7) + (@margin * 6));
+}
+
+.xs-8 {
+  width: calc((@scw * 8) + (@margin * 7));
+}
+
+.xs-9 {
+  width: calc((@scw * 9) + (@margin * 8));
+}
+.xs-10{
+  width: calc((@scw * 10) + (@margin * 9));
+}
+
+.xs-12 {
+  width: calc((@scw * 12) + (@margin * 11));
+  margin-left: 0;
+}
+
+.column {
+  border-radius: 5px;
+  padding: 5px;
+  min-height: 30px;
+  text-align: center;
+}
+
+
+.row:last-child {
+  margin-bottom: 0;
+}
+
+@media only screen and (max-width: 700px) {
+  .lg-1,
+  .lg-2,
+  .lg-3,
+  .lg-4,
+  .lg-5,
+  .lg-6,
+  .lg-7,
+  .lg-8,
+  .lg-9,
+  .lg-10,
+  .lg-11,
+  .lg-12{
+    float: none;
+    width: auto;
+  }
+
+  .column + .column {
+    margin-left: 0;
+
+  }
+  .row {
+    margin-bottom: 0;
+  }
+  .row:last-child .column:last-child {
+    margin-bottom: 0;
+  }
+
+  .column {
+    text-align: center;
+  }
+}

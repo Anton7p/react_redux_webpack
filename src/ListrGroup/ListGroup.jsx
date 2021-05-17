@@ -44,7 +44,8 @@ function ListGroup({words, add, remove}) {
     return (
         <div className="column lg-9">
             {cardList.length > 0
-                ? cardList.sort(sortCard).map((word, idx) => {
+                ?
+                cardList.sort(sortCard).map((word, idx) => {
                     return <div key={idx}
                                 onDragStart={(e) => dragStartHandler(e, word)}
                                 onDragOver={(e) => dragOverHandler(e)}
@@ -55,7 +56,14 @@ function ListGroup({words, add, remove}) {
                             add={add}
                             remove={remove}/>
                     </div>})
-                : 'There is nothing here'
+                :
+                <div className="column lg-12">
+                    <div className="lightgrey row">
+                        <div className="column lg-12">
+                            <span>There is nothing here</span>
+                        </div>
+                    </div>
+                </div>
             }
         </div>
     );

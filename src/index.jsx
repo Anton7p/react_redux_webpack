@@ -1,6 +1,7 @@
-import './styles/style.css'
-import './styles/star.css'
-import './styles/less.less'
+
+import './styles/star.less'
+import './styles/style.less'
+import './styles/grid.less'
 import React from 'react'
 import ReactDOM from 'react-dom';
 import {Provider} from "react-redux";

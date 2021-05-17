@@ -1,12 +1,12 @@
 import React from 'react';
 import PageContent from "./PageContent.jsx";
-import TabPanel from "./TabPanel.jsx";
+import Header from "./Header.jsx";
 
 
-export function ViewContent(props) {
+export function ViewContentComponent(props) {
     return (
         <>
-            <TabPanel {...props}/>
+            <Header {...props}/>
             <div className="page_content row">
                 <PageContent  {...props}/>
             </div>
@@ -14,4 +14,4 @@ export function ViewContent(props) {
     );
 }
 
-export default ViewContent;
+export default ViewContentComponent;

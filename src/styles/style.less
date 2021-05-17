@@ -1,0 +1,118 @@
+@import "~normalize.css";
+@import 'roboto.css';
+@import "vars.less";
+
+body {
+  font-family: 'Roboto', sans-serif;
+  padding: 20px;
+}
+
+.wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+
+}
+.header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.page {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.page_content {
+  min-height:85vh;
+  flex: 1 1 auto;
+}
+
+.hide {
+  display: none;
+}
+
+
+input[type=text] {
+  width: 90%;
+  font-size: 16px;
+  margin: 0;
+  padding: 5px;
+  border-radius: 4px;
+  min-height: 30px;
+  border: @secondary 1px solid;
+}
+
+
+.definition {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.description {
+  width: 100%;
+}
+
+.lightblue {
+  font-size: 25px;
+  color: white;
+  background: @secondary;
+}
+
+.lightgrey {
+  background: @primary;
+  border-radius: 4px;
+}
+
+.title {
+  text-align: left;
+  padding-left: 5%;
+  font-size: 25px;
+}
+.left.column.xs-9{
+  text-align: left;
+}
+.lightblue.column.xs-4 {
+  text-align: end;
+
+  @media only screen and (max-width: 700px) {
+    text-align:center;
+  }
+}
+.lightblue .star{
+  background-color:@primary;
+}
+.lightblue .star{
+  @media only screen and (max-width: 700px) {
+    display:none;
+  }
+}
+.starred{
+  background: @secondary;
+}
+.left.column.xs-12 {
+  display: flex;
+  align-items: center;
+  @media only screen and (max-width: 700px) {
+   justify-content: center;
+  }
+}
+.left.column.xs-12 > span{
+  margin-left: 10px;
+}
+.input{
+
+  position: relative;
+}
+.input_img{
+  min-height: 20px;
+  background-color: white;
+  border: none;
+  position: absolute;
+  top:12px;
+  right: 15px;
+  @media only screen and (max-width: 700px) {
+    right: 30px;
+  }
+}

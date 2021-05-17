@@ -1,12 +1,12 @@
 import React from 'react';
 import PageContentContainer from "./PageContentContainer.jsx";
 import PageContent from "./PageContent.jsx";
-import TabPanel from "./TabPanel";
+import Header from "./Header";
 
-export function SelectContent(props) {
+export function SelectedContentComponent(props) {
     return (
         <>
-            <TabPanel {...props}/>
+            <Header {...props}/>
             <div className="page_content row">
                 <PageContentContainer>
                     <PageContent  {...props}/>
@@ -16,4 +16,4 @@ export function SelectContent(props) {
     );
 }
 
-export default SelectContent;
+export default SelectedContentComponent;
