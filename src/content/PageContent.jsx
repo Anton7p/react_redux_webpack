@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, {useState} from "react";
 import FormGroup from "../FormGroup/FormGroup.jsx";
 import ListGroup from "../ListrGroup/ListGroup.jsx";
 import {useControlContext} from "../mode/ModeControl.jsx";
@@ -25,13 +25,12 @@ function PageContent(props) {
 
 
     function handleCheckbox(element, value) {
-
         if (element) {
             checkboxItems.push(value);
             setCheckboxItems(checkboxItems);
             setFlag(!flag);
         } else {
-            let arr=checkboxItems.filter(el => el !== value)
+            let arr = checkboxItems.filter(el => el !== value)
             setCheckboxItems(arr);
         }
     }
@@ -40,8 +39,8 @@ function PageContent(props) {
         dispatch(async () => {
             // 'vrs/' query parameter for api https://dictionaryapi.com/,the call  returns a variant of a word in an array
             let response = await dictionaryApi.getWords(value, "vrs/");
-            if (response.length > 3) {
-                response.length = 3;
+            if (response.length > 10) {
+                response.length = 10;
             }
             let words = []
             for (let el of response) {
@@ -55,11 +54,12 @@ function PageContent(props) {
 
 
     function handleClick() {
+        if (inputValue === ' ') return;
         downloadData(inputValue);
     }
 
     return (
-        <div className="row" >
+        <div className="row">
             <div className="column lg-12">
                 <div className=" row">
                     <div className=" row">
@@ -73,9 +73,9 @@ function PageContent(props) {
                                    words={mode === "view"
                                        ? props.words
                                        : filterByCheckboxItem(
-                                           filterByInputSearchValue(props.selected,inputValue),
+                                           filterByInputSearchValue(props.selected, inputValue),
                                            checkboxItems,
-                                          setCheckboxItems
+                                           setCheckboxItems
                                        )}
 
                         />
