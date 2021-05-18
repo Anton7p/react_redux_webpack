@@ -5,7 +5,7 @@ import {useControlContext} from "../mode/ModeControl.jsx";
 import {filterByCheckboxItem} from "../lib/filterByCheckboxItem";
 import {filterByInputSearchValue} from "../lib/filterByInputSearchValue";
 import {dictionaryApi} from "../api/dictionaryApi";
-import {setWords} from "../redux/words";
+import {setWords} from "../redux/reducers/words";
 import {useDispatch} from "react-redux";
 
 /**
@@ -31,7 +31,8 @@ function PageContent(props) {
             setCheckboxItems(checkboxItems);
             setFlag(!flag);
         } else {
-            setCheckboxItems(checkboxItems.filter(el => el !== value));
+            let arr=checkboxItems.filter(el => el !== value)
+            setCheckboxItems(arr);
         }
     }
 
@@ -71,7 +72,11 @@ function PageContent(props) {
                         <ListGroup {...props}
                                    words={mode === "view"
                                        ? props.words
-                                       : filterByCheckboxItem(filterByInputSearchValue(props.selected,inputValue), checkboxItems)}
+                                       : filterByCheckboxItem(
+                                           filterByInputSearchValue(props.selected,inputValue),
+                                           checkboxItems,
+                                          setCheckboxItems
+                                       )}
 
                         />
                     </div>

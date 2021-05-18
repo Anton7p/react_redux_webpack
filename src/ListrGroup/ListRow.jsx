@@ -18,11 +18,11 @@ function ListRow({word, add, remove}) {
                         {mode === "view" ? null : <div className="column lg-1">
                             <img src={list} alt=""/>
                         </div>}
-                        <div className="column lg-2" onClick={() => setDescription(!description)}>
-                            {Content.Instance.getName(word)}
+                        <div className=" name column lg-2" onClick={() => setDescription(!description)}>
+                           <b> {Content.Instance.getName(word,mode) }</b>
                         </div>
                         <div className="column lg-2">
-                            {Content.Instance.getPartOfSpeech(word)}
+                           <i> {Content.Instance.getPartOfSpeech(word)}</i>
                         </div>
                         <div className={`definition column lg-${mode === "view" ? 7 : 6}`}>
                             {description

@@ -1,5 +1,5 @@
-import {checkUniqueObject} from "../lib/checkUniqueObject";
-import {removeFromArrayObject} from "../lib/removeFromArrayObject";
+import {checkUniqueObject} from "../../lib/checkUniqueObject";
+import {removeFromArrayObject} from "../../lib/removeFromArrayObject";
 
 const ADD_SELECTED ="ADD_SELECTED";
 const REMOVE_SELECTED = "REMOVE_SELECTED";
@@ -14,10 +14,10 @@ const selectedReducer = (state = initialState, action) => {
             if (state.selected.length > 0 && checkUniqueObject(state.selected, action.payload)) {
                 return state;
             }
-            return {...state, selected: [...state.selected, action.payload]};
+            return {...state,...state.selected, selected: [...state.selected, action.payload]};
 
         case REMOVE_SELECTED:
-            return {...state, selected: [...removeFromArrayObject(state.selected, action.payload)]};
+            return {...state,...state.selected, selected: [...removeFromArrayObject(state.selected, action.payload)]};
         default: {
             return state;
         }

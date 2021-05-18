@@ -1,6 +1,6 @@
 import React from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {removeSelected, addSelected} from "./redux/selected";
+import {removeSelected, addSelected} from "./redux/reducers/selected";
 import {removeBackupDataValue} from "./lib/removeBackupDataValue";
 import {addBackupDataValue} from "./lib/addBackupDataValue";
 import Footer from "./content/Footer";
@@ -16,26 +16,27 @@ function WordKeeper() {
 
     let backup = JSON.parse(localStorage.getItem("backup"));
     if (!backup) {
+        localStorage.setItem("backup", JSON.stringify(true));
         localStorage.setItem("backupData", JSON.stringify([]));
     }
-    localStorage.setItem("backup", JSON.stringify(true));
 
     const dispatch = useDispatch()
-    const words = useSelector(state => state.words.words[0]);
+    const words = useSelector(state => state.words.words);
     const selected = useSelector(state => state.selected.selected);
 
-    if (selected.length === 0){
+    function getSelectedWords(selected) {
         let backupData = JSON.parse(localStorage.getItem("backupData"));
-        selected.push(...backupData)
+        if (selected.length < backupData.length) {
+            return backupData
+        }
+        return selected
     }
-
-
 
     return (
         <div className="wrapper">
             <div className="page white column lg-12">
                 <Switch words={words}
-                        selected={selected}
+                        selected={getSelectedWords(selected)}
                         add={(value) => {
                             dispatch(addSelected(value));
                             addBackupDataValue(value);

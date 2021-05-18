@@ -33,7 +33,8 @@ body {
 }
 
 
-input[type=text] {
+input[type=text],
+input[type=text]:focus-visible{
   width: 90%;
   font-size: 16px;
   margin: 0;
@@ -41,9 +42,18 @@ input[type=text] {
   border-radius: 4px;
   min-height: 30px;
   border: @secondary 1px solid;
+  outline-color:@secondary;
+
 }
+input[type=checkbox],
+input[type=checkbox]:focus-visible{
 
+  color:@secondary;
+  background-color:@secondary;
+  border: @secondary 1px solid;
+  outline-color:@secondary;
 
+}
 .definition {
   white-space: nowrap;
   overflow: hidden;
@@ -103,7 +113,6 @@ input[type=text] {
   margin-left: 10px;
 }
 .input{
-
   position: relative;
 }
 .input_img{
@@ -117,3 +126,10 @@ input[type=text] {
     right: 30px;
   }
 }
+.name.column.lg-2{
+  text-align: left;
+  @media only screen and (max-width: 700px) {
+    text-align: center;
+  }
+}
+

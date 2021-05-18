@@ -5,7 +5,8 @@ function Title(props) {
         <>
             <div className="column lg-12">
                 <div className="title row">
-                    <span>Starred Words</span>
+                    <span>
+                       <b>Starred Words</b> </span>
                 </div>
             </div>
             {props.children}

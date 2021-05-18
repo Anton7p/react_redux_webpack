@@ -17,3 +17,14 @@ Mode as well as functions that switch it to be passed through the context in Mod
 Processing of data returned from api is carried out by methods of the class Content
 
 Data filtering is carried out in the component PageContent
+
+
+
+If you need to change the api "https://www.dictionaryapi.com" and change the incoming data,
+you need to change the default parameters in functions and methods :
+* class Content from "src/api/contentApi"
+* function checkUniqueObject from "src/lib/"
+* function filterByInputSearchValue from "src/lib/"
+* function filterByCheckboxItem from "src/lib/"
+* function removeFromArrayObject from "src/lib/"
+* function downloadData from "src/content/PageContent"

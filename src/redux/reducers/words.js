@@ -9,7 +9,7 @@ const words = createSlice({
     reducers: {
         setWords(state, action) {
             state.words=[];
-            state.words.push(action.payload);
+            state.words.push(...action.payload);
         } ,
     }
 })

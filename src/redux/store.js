@@ -1,7 +1,7 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 
-import selectedReducer from "./selected";
-import wordsReducer from "./words";
+import selectedReducer from "./reducers/selected";
+import wordsReducer from "./reducers/words";
 
 const rootReducer = combineReducers({
     words: wordsReducer,
