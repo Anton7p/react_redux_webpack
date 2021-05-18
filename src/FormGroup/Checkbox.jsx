@@ -1,9 +1,9 @@
 import React from "react";
-import CheckBoxItem from "./CheckBoxItem.jsx";
+import CheckboxItem from "./CheckboxItem.jsx";
 import {Content} from "../api/contentApi.js";
 import {uniqueArray} from "../lib/uniqueArray";
 
-function CheckBox({selected, handleCheckbox}) {
+function Checkbox({selected, handleCheckbox}) {
 
     let partOfSpeech = [];
     if (selected) {
@@ -16,7 +16,7 @@ function CheckBox({selected, handleCheckbox}) {
             <div className="column xs-12 ">
                 {uniqueArray(partOfSpeech).map(item => {
                     if (item === "nothing here") return null;
-                    return <CheckBoxItem key={item}
+                    return <CheckboxItem key={item}
                                          name={item}
                                          handleCheckbox={handleCheckbox}/>
 
@@ -26,4 +26,4 @@ function CheckBox({selected, handleCheckbox}) {
     );
 }
 
-export default CheckBox;
+export default Checkbox;

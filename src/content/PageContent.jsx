@@ -9,7 +9,7 @@ import {setWords} from "../redux/reducers/words";
 import {useDispatch} from "react-redux";
 
 /**
- * IThis component processes data from the Input and CheckBox components
+ * IThis component processes data from the Input and Checkbox components
  * if the mode "view" is loading data,else the array is filtered
  * If the user searches for a word or part of speech, the function filterByInputSearchValue or  function filterByCheckboxItem
  * filters the word array and returns the found object;

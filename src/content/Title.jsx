@@ -4,9 +4,8 @@ function Title(props) {
     return (
         <>
             <div className="column lg-12">
-                <div className="title row">
-                    <span>
-                       <b>Starred Words</b> </span>
+                <div className="content_title row">
+                       <b>Starred Words</b>
                 </div>
             </div>
             {props.children}

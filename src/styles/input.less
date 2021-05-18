@@ -1,0 +1,30 @@
+@import "vars.less";
+
+.group_input__custom_input{
+  width: 90%;
+  font-size: 16px;
+  margin: 0;
+  padding: 5px;
+  border-radius: 4px;
+  min-height: 30px;
+  border: @secondary 1px solid;
+  outline-color:@secondary;
+}
+
+.group_input__custom_input:focus-visible{
+  border-color: @secondary;
+}
+.group_input{
+  position: relative;
+}
+.group_input__search_image{
+  min-height: 20px;
+  background-color: @tertiary;
+  border: none;
+  position: absolute;
+  top:12px;
+  right: 15px;
+  @media only screen and (max-width: 700px) {
+    right: 30px;
+  }
+}

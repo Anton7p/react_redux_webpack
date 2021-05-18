@@ -63,8 +63,8 @@ function ListGroup({words, add, remove}) {
                     </div>})
                 :
                 <div className="column lg-12">
-                    <div className="lightgrey row">
-                        <div className="column lg-12">
+                    <div className="row">
+                        <div className="content_group column lg-12">
                             <span>There is nothing here</span>
                         </div>
                     </div>

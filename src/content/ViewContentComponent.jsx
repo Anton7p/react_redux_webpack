@@ -7,7 +7,7 @@ export function ViewContentComponent(props) {
     return (
         <>
             <Header {...props}/>
-            <div className="page_content row">
+            <div className="content row">
                 <PageContent  {...props}/>
             </div>
         </>

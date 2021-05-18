@@ -8,16 +8,16 @@ function Input(props) {
     return (
         <div className="row">
             <div className=" column lg-12">
-                <div className="input">
-                    <input
-                        defaultValue={''}
-                        placeholder=''
-                        type="text"
-                        onChange={e =>  props.setInputValue(e.target.value)}
-                        onKeyDown={(e) => mode === "view" ? handleKeyDown(e, (defaultValue) => props.downloadData(defaultValue)) : null}
-                    />
+                <div className="group_input">
+                    <input className="group_input__custom_input"
+                           defaultValue={''}
+                           type="text"
+                           onChange={e =>  props.setInputValue(e.target.value)}
+                           onKeyDown={(e) => mode === "view" ? handleKeyDown(e, (defaultValue) => props.downloadData(defaultValue)) : null}
+                         />
+                    <label htmlFor="group_input__custom_input">{props.name}</label>
                     {mode === "view"
-                        ?  <span className="input_img" onClick={props.handleClick}>
+                        ?  <span className="group_input__search_image" onClick={props.handleClick}>
                               <img src={img} alt=""/>
                            </span>
                         :   null}

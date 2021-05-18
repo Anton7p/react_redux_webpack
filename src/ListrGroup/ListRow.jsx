@@ -13,18 +13,18 @@ function ListRow({word, add, remove}) {
     return (
         <div className="row">
             <div className="column lg-12">
-                <div className="lightgrey row">
+                <div className="content_group row">
                     <div className="column lg-12">
                         {mode === "view" ? null : <div className="column lg-1">
                             <img src={list} alt=""/>
                         </div>}
-                        <div className=" name column lg-2" onClick={() => setDescription(!description)}>
+                        <div className="content_group__name column lg-2" onClick={() => setDescription(!description)}>
                            <b> {Content.Instance.getName(word,mode) }</b>
                         </div>
                         <div className="column lg-2">
                            <i> {Content.Instance.getPartOfSpeech(word)}</i>
                         </div>
-                        <div className={`definition column lg-${mode === "view" ? 7 : 6}`}>
+                        <div className={`content_group__definition column lg-${mode === "view" ? 7 : 6}`}>
                             {description
                                 ? Content.Instance.getPronunciation(word)
                                 : Content.Instance.getDescription(word)}

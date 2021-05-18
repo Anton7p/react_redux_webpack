@@ -34,7 +34,7 @@ function WordKeeper() {
 
     return (
         <div className="wrapper">
-            <div className="page white column lg-12">
+            <div className="column lg-12">
                 <Switch words={words}
                         selected={getSelectedWords(selected)}
                         add={(value) => {

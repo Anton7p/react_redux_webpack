@@ -7,7 +7,7 @@ export function SelectedContentComponent(props) {
     return (
         <>
             <Header {...props}/>
-            <div className="page_content row">
+            <div className="content row">
                 <Title>
                     <PageContent  {...props}/>
                 </Title>

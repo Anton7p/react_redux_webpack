@@ -1,6 +1,8 @@
 @import "~normalize.css";
 @import 'roboto.css';
 @import "vars.less";
+@import "checkbox.less";
+@import "input.less";
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -12,124 +14,76 @@ body {
   margin: 0 auto;
 
 }
-.header{
+
+.header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.page {
-  display: flex;
-  flex-direction: column;
 
+.content {
+  min-height: 85vh;
+  flex: 1 1 auto;
 }
 
-.page_content {
-  min-height:85vh;
-  flex: 1 1 auto;
+.content_group {
+  background: @primary;
+  border-radius: 4px;
 }
 
 .hide {
   display: none;
 }
 
-
-input[type=text],
-input[type=text]:focus-visible{
-  width: 90%;
-  font-size: 16px;
-  margin: 0;
-  padding: 5px;
-  border-radius: 4px;
-  min-height: 30px;
-  border: @secondary 1px solid;
-  outline-color:@secondary;
-
+.content_title {
+  margin: 10px;
+  display: flex;
+  justify-content: start;
+  padding-left: 5%;
+  font-size: 35px;
+  @media only screen and (max-width: 700px) {
+    justify-content: center;
+  }
 }
-input[type=checkbox],
-input[type=checkbox]:focus-visible{
 
-  color:@secondary;
-  background-color:@secondary;
-  border: @secondary 1px solid;
-  outline-color:@secondary;
-
-}
-.definition {
+.content_group__definition {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.description {
+.content_group__description {
   width: 100%;
 }
 
-.lightblue {
-  font-size: 25px;
-  color: white;
-  background: @secondary;
-}
-
-.lightgrey {
-  background: @primary;
-  border-radius: 4px;
-}
-
-.title {
-  margin: 10px;
-  text-align: left;
-  padding-left: 5%;
-  font-size: 35px;
-}
-.left.column.xs-9{
-  text-align: left;
-}
-.lightblue.column.xs-4 {
-  text-align: end;
-
-  @media only screen and (max-width: 700px) {
-    text-align:center;
-  }
-}
-.lightblue .star{
-  background-color:@primary;
-}
-.lightblue .star{
-  @media only screen and (max-width: 700px) {
-    display:none;
-  }
-}
-.starred{
-  background: @secondary;
-}
-.left.column.xs-12 {
-  display: flex;
-  align-items: center;
-  @media only screen and (max-width: 700px) {
-   justify-content: center;
-  }
-}
-.left.column.xs-12 > span{
-  margin-left: 10px;
-}
-.input{
-  position: relative;
-}
-.input_img{
-  min-height: 20px;
-  background-color: white;
-  border: none;
-  position: absolute;
-  top:12px;
-  right: 15px;
-  @media only screen and (max-width: 700px) {
-    right: 30px;
-  }
-}
-.name.column.lg-2{
+.content_group__name {
   text-align: left;
   @media only screen and (max-width: 700px) {
     text-align: center;
   }
 }
+
+
+.header {
+  font-size: 25px;
+  color: white;
+  background: @secondary;
+
+  .xs-4 {
+    text-align: end;
+    @media only screen and (max-width: 700px) {
+      text-align: center;
+    }
+  }
+
+  .star {
+    background-color: @primary;
+    @media only screen and (max-width: 700px) {
+      display: none;
+    }
+  }
+}
+
+
+
 
